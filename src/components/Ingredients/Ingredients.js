@@ -14,6 +14,11 @@ const Ingredients=()=> {
       }
     ]);
   };
+  
+  const removeIngredientHandler = ingredientId =>{
+    setUserIngredients(prevIngredients =>
+      prevIngredients.filter(ingredients => ingredients.id !== ingredientId))
+  }
 
   return (
     <div className="App">
@@ -21,7 +26,7 @@ const Ingredients=()=> {
 
       <section>
         <Search />
-        <IngredientsList ingredients={userIngredients} onRemoveItem={()=>{}}/>
+        <IngredientsList ingredients={userIngredients} onRemoveItem={removeIngredientHandler}/>
       </section>
     </div>
   );
